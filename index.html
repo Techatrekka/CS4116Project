@@ -1,6 +1,25 @@
 <html>
 <head>
 <title>EmployMee</title>
+<?php 
+//dbase001.php
+$servername = "sql112.byetcluster.com";
+$username = "epiz_27901043";
+$password = "XXXXX";
+$dbname = "epiz_27901043_examples01";
+$conn = new mysqli($servername, $username, $password,$dbname);// Check connection
+if ($conn->connect_error) {    
+die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
+90
+$sql = "select * from modules;";
+$result = $conn->query($sql); 
+while($row = $result->fetch_assoc())   {    
+print "{$row["code"]}:{$row["name"]}\n";  
+}
+$conn->close();
+?>
 </head>
 <body>
 <p>This is a website!</p>
