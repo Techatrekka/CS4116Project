@@ -56,17 +56,17 @@ include 'database.php'
 				<input type="text" name="email" <?php if (isset($email) && !str_contains($email,"@")) 
 				{echo "not a valid email address";}?> placeholder="Email" id="email" required>
 				<br>
-				<label for="username">
+				<label for="Fullname">
 					<i class="fas fa-user"></i>
 				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
+				<input type="text" name="fullname" placeholder="Fullname" id="fullname" required>
 				<br>
 				<label for="password">
 					<i class="fas fa-lock"></i>
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required>
 				<br>
-				<input type="submit" value="Login" class="registerbtn">
+				<input type="submit" value="Login" class="registerbtn" action="registered.php">
 			</form>
 			</p>
 			</div>
