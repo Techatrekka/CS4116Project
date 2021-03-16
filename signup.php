@@ -5,7 +5,7 @@ include 'database.php'
 ?>
 <html>
 <head>
-	<title>EmployMe</title>
+	<title>EmployMee</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
 	rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
 	crossorigin="anonymous">
@@ -49,7 +49,7 @@ include 'database.php'
 			<div class="col">
 			<h1 style="color:#f3b400;">Register and Grow Your Network</h1>
 			<p>
-			<form action="registerUser.php" method="post">
+			<form action="registerUser.php" method="post" action="registered.php">
 				<label for="email">
 					<i class="fas fa-user"></i>
 				</label>
@@ -66,7 +66,7 @@ include 'database.php'
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required>
 				<br>
-				<input type="submit" value="Login" class="registerbtn" action="registered.php">
+				<input type="submit" value="Register" class="registerbtn">
 			</form>
 			</p>
 			</div>
