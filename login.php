@@ -74,12 +74,11 @@
          
          <?php
             $msg = '';
-            
             if (isset($_POST['login']) && !empty($_POST['username']) 
                && !empty($_POST['password'])) {
-				
-               if ($_POST['username'] == 'tutorialspoint' && 
-                  $_POST['password'] == '1234') {
+				   $sqlCheck = "SELECT * FROM users WHERE email =\"".$_POST["username"]."\"AND password = \"".$_POST["password"]."\";";
+				$msg = $conn->query($sqlCheck);
+               if ($msg != NULL) {
                   $_SESSION['valid'] = true;
                   $_SESSION['timeout'] = time();
                   $_SESSION['username'] = 'tutorialspoint';
@@ -106,8 +105,6 @@
             <button class = "btn btn-lg btn-primary btn-block" type = "submit" 
                name = "login">Login</button>
          </form>
-			
-         Click here to clean <a href = "logout.php" tite = "Logout">Session.
          
       </div> 
 	  <?php
