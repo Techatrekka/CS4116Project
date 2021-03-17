@@ -84,6 +84,7 @@
                   $_SESSION['username'] = 'tutorialspoint';
                   
                   echo 'You have entered valid use name and password';
+				  //header("Location: http://www.example.com/another-page.php");
                }else {
                   $msg = 'Wrong username or password';
                }
