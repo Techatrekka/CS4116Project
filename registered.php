@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <?php
-include 'header.php';
+include './nav_bar/header.php';
 include 'database.php';
 ?>
 <html>
@@ -14,27 +14,36 @@ include 'database.php';
 	crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container">
-<div class="row align-items-center">
-			<div class="col">
-			</div>
-			<div class="col">
-			<p>hello</p>
-			</div>
-			<div class="col">
-			</div>
-			</div>
+<div class="container-fluid" style="background-color:MidnightBlue;">
+	<div class="row align-items-center" style="padding-top:150px;padding-bottom:150px;">
+		<div class="col">
+		</div>
+		<div class="col">
+			<h1 style="color:#f3b400">Thanks For Registering! <?php echo $_POST["fullname"]?></h1>
+			<h3 style="color:#f3b400">Please proceed to the login page to login in to your new account!</h3>
+			<?php
+			$details = Array();
+			$details[0] = $_POST["fullname"];
+			$details[1] = $_POST["email"];
+			$details[2] = $_POST["password"];
+			$details[3] = $_POST["userType"];
+			if ($details[3] != 'business') {
+				$details[3] = "regular";
+			}
+			for ($i = 0; $i < count($details); $i++) {
+				$details[$i] = "\"".$details[$i]."\"";
+			}
+			$query = "INSERT INTO users(full_name, email, password, user_type)
+			Values(".$details[0].",".$details[1].",".$details[2].",".$details[3].");";
+			$conn->query($query);
+			?>
+		</div>
+		<div class="col">
+		</div>
+	</div>
 </div>
 <?php
-$details = Array();
-$details[0] = $_POST["fullname"];
-$details[1] = $_POST["email"];
-$details[2] = $_POST["password"];
-$query = "INSERT INTO `users`(`Full name`, `email`,`password`) Values(".$details[0].",".$details[1].",".$details[2]".);";
-echo $query;
-?>
-<?php
-include 'footer.php';
+include './nav_bar/footer.php';
 ?>
 </body>
 </html>

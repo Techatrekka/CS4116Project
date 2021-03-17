@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <?php
-include 'header.php';
+include './nav_bar/header.php';
 include 'database.php'
 ?>
 <html>
@@ -48,34 +48,31 @@ include 'database.php'
 			</div>
 			<div class="col">
 			<h1 style="color:#f3b400;">Register and Grow Your Network</h1>
-			<p>
-			<form action="registerUser.php" method="post" action="registered.php">
+			<form method="post" action="registered.php">
 				<label for="email">
 					<i class="fas fa-user"></i>
 				</label>
 				<input type="text" name="email" <?php if (isset($email) && !str_contains($email,"@")) 
 				{echo "not a valid email address";}?> placeholder="Email" id="email" required>
-				<br>
 				<label for="Fullname">
 					<i class="fas fa-user"></i>
 				</label>
 				<input type="text" name="fullname" placeholder="Fullname" id="fullname" required>
-				<br>
 				<label for="password">
 					<i class="fas fa-lock"></i>
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required>
-				<br>
+				<label for="userType" style="color:#f3b400">Are you a Business User?</label>
+                <input type="checkbox" id="userType" name="userType" value="business">
 				<input type="submit" value="Register" class="registerbtn">
 			</form>
-			</p>
 			</div>
 			<div class="col">
 			</div>
 		</div>	
 	</div>
 	<?php 
-    include 'footer.php';
+    include './nav_bar/footer.php';
     ?>
 </body>
 </html>
