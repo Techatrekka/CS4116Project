@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <?php
-include './nav_bar/header.php';
-include 'database.php';
+include '../nav_bar/header.php';
+include '../database.php';
 ?>
 <html>
 <head>
@@ -15,7 +15,7 @@ include 'database.php';
 </head>
 <body>
 <div class="container-fluid" style="background-color:MidnightBlue;">
-	<div class="row align-items-center" style="padding-top:150px;padding-bottom:150px;">
+	<div class="row align-items-center" style="padding-top:200px;padding-bottom:200px;">
 		<div class="col">
 		</div>
 		<div class="col">
@@ -27,7 +27,7 @@ include 'database.php';
 			$details[1] = $_POST["email"];
 			$details[2] = $_POST["password"];
 			$details[3] = $_POST["userType"];
-			if ($details[3] != 'business') {
+			if ($details[3] != "business") {
 				$details[3] = "regular";
 			}
 			for ($i = 0; $i < count($details); $i++) {
@@ -43,7 +43,7 @@ include 'database.php';
 	</div>
 </div>
 <?php
-include './nav_bar/footer.php';
+include '../nav_bar/footer.php';
 ?>
 </body>
 </html>

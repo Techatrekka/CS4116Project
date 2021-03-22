@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <?php
-include './nav_bar/header.php';
-include 'database.php'
+include '../nav_bar/header.php';
+include '../database.php'
 ?>
 <html>
 <head>
@@ -72,7 +72,7 @@ include 'database.php'
 		</div>	
 	</div>
 	<?php 
-    include './nav_bar/footer.php';
+    include '../nav_bar/footer.php';
     ?>
 </body>
 </html>
