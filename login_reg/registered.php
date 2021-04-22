@@ -1,7 +1,11 @@
 <!DOCTYPE HTML>
 <?php
 include '../nav_bar/header.php';
-include '../database.php';
+require '../database.php';
+session_start();
+if(isset($_SESSION['valid'])) {
+    header("Location: ../index.php");
+} 
 ?>
 <html>
 <head>
@@ -19,24 +23,8 @@ include '../database.php';
 		<div class="col">
 		</div>
 		<div class="col">
-			<h1 style="color:#f3b400">Thanks For Registering! <?php echo $_POST["fullname"]?></h1>
+			<h1 style="color:#f3b400">Thanks For Registering!</h1>
 			<h3 style="color:#f3b400">Please proceed to the login page to login in to your new account!</h3>
-			<?php
-			$details = Array();
-			$details[0] = $_POST["fullname"];
-			$details[1] = $_POST["email"];
-			$details[2] = $_POST["password"];
-			$details[3] = $_POST["userType"];
-			if ($details[3] != "business") {
-				$details[3] = "regular";
-			}
-			for ($i = 0; $i < count($details); $i++) {
-				$details[$i] = "\"".$details[$i]."\"";
-			}
-			$query = "INSERT INTO users(full_name, email, password, user_type)
-			Values(".$details[0].",".$details[1].",".$details[2].",".$details[3].");";
-			$conn->query($query);
-			?>
 		</div>
 		<div class="col">
 		</div>

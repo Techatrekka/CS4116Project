@@ -1,0 +1,43 @@
+h1 {
+    text-align: center;
+    background-color: #f1b522;
+    color : #23286b;
+}
+
+h3 {
+    color:#f1b522;
+    padding-top:10px;
+}
+
+a {
+    color:#f1b522;
+}
+.sidebar, .page-heading {
+    margin-left: 20px; 
+    margin-right: auto;
+}
+
+.page-sidebar {
+    color: #f1b522;
+    background-color: #23286b;
+}
+
+.page-title-bar {
+    text-align: center;
+    background-color: #f1b522;
+    color : #23286b;
+    
+}
+
+ .TH,TR,TD{
+    border: 1px solid black;
+    width:45%; 
+    text-align: center;
+}
+
+.blank_row
+{
+    border: 1px solid white;
+    height: 10px;
+    background-color: #FFFFFF;
+}

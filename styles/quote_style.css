@@ -1,0 +1,19 @@
+blockquote {
+    margin: 0;
+}
+
+blockquote p {
+    text-align: left;
+    padding: 15px;
+    color : #23286b;
+    background: #f1b522;
+    border-radius: 5px;
+}
+
+blockquote p::before {
+    content: '\201C';
+}
+
+blockquote p::after {
+    content: '\201D';
+}

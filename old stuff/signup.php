@@ -48,12 +48,11 @@ include '../database.php'
 			</div>
 			<div class="col">
 			<h1 style="color:#f3b400;">Register and Grow Your Network</h1>
-			<form method="post" action="registered.php">
+			<form method="post" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>>
 				<label for="email">
 					<i class="fas fa-user"></i>
 				</label>
-				<input type="text" name="email" <?php if (isset($email) && !str_contains($email,"@")) 
-				{echo "not a valid email address";}?> placeholder="Email" id="email" required>
+				<input type="text" name="email" placeholder=<?php $emailErr = $_POST["email"]; if(isset($emailErr)) {echo $emailErr;} else {echo "Email";}?> id="email" required>
 				<label for="Fullname">
 					<i class="fas fa-user"></i>
 				</label>
@@ -71,6 +70,50 @@ include '../database.php'
 			</div>
 		</div>	
 	</div>
+	<?php
+		$nameErr = "";
+		$emailErr = "";
+		$passwordErr = "";
+		$password = "";
+		$name = "";
+		$email = "";
+	
+	function test_input($data) {
+	  $data = trim($data);
+	  $data = stripslashes($data);
+	  $data = htmlspecialchars($data);
+	  return $data;
+	}
+	
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	  if (empty($_POST["fullname"])) {
+		$nameErr = "Name is required";
+	  } 
+	  if (empty($_POST["email"])) {
+		$emailErr = "Email is required";
+	  } else {
+		$email = test_input($_POST["email"]);
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		  $emailErr = "Invalid email format";
+		}
+	  }
+	  if (empty($_POST["password"])) {
+		$passwordErr = "Password is required";
+	  } else {
+		$password = test_input($_POST["password"]);
+		if (!preg_match("/^[a-z0-9A-Z-' ]*$/",$password)) {
+		  $passwordErr = "Invalid password format";
+		}
+	  }
+	  if($nameErr == "" && $emailErr == "" && $passwordErr == "") {
+		setcookie("fullname", $_POST["fullname"], time()+5);
+		setcookie("email", $_POST["email"], time()+5);
+		setcookie("userType", $_POST["userType"], time()+5);
+		setcookie("password", $_POST["password"], time()+5);
+		header('Location: http://www.employmee.epizy.com/login_reg/registered.php');
+	}
+	}
+	?>
 	<?php 
     include '../nav_bar/footer.php';
     ?>
